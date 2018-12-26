@@ -3,6 +3,9 @@ using Xunit;
 using RGRProject.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+using RGRProject.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace XUnitTests
 {
@@ -13,15 +16,27 @@ namespace XUnitTests
         public void TestGetPlaces()
         {
             // Arrange
-            APIController controller = new APIController();
-            controller.ControllerContext = new ControllerContext();
-            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            using (var context = GetContext())
+            {
+                APIController controller = new APIController(context);
+                controller.ControllerContext = new ControllerContext();
+                controller.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            // Act
-            ApiAnswer<string> result = controller.GetPlaces().Value as ApiAnswer<string>;
+                // Act
+                ApiAnswer<List<Place>> result = controller.GetPlaces().Value as ApiAnswer<List<Place>>;
 
-            // Assert
-            Assert.Equal("places", result.Data);
+                // Assert
+                Assert.Equal(new List<Place>(), result.Data);
+            }
+        }
+
+        private DatabaseContext GetContext()
+        {
+            var options = new DbContextOptionsBuilder<DatabaseContext>()
+                      .UseInMemoryDatabase(Guid.NewGuid().ToString())
+                      .Options;
+            var context = new DatabaseContext(options);
+            return context;
         }
     }
 }

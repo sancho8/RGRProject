@@ -1,7 +1,11 @@
 language: csharp
 mono: none
 dotnet: 2.1.302
+services:
+  - postgresql
 before_script:
   - dotnet restore
+  - psql -c "CREATE DATABASE RGRDatabase;" -U postgres
 script:  
+  - dotnet ef database update
   - dotnet test ./XUnitTests
