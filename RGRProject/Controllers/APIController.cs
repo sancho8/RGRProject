@@ -36,16 +36,16 @@ namespace RGRProject.Controllers
     public class ApiAnswer<T>
     {
         [DataMember]
-        internal int RequestStatus;
+        public int RequestStatus;
 
         [DataMember]
-        internal string RequestDescription;
+        public string RequestDescription;
 
         [DataMember]
-        internal string News;
+        public string News;
 
         [DataMember]
-        internal T Data;
+        public T Data;
 
         public ApiAnswer(int requestStatus, string requestDescription, string news, T data)
         {

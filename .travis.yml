@@ -1,5 +1,7 @@
 language: csharp
 mono: none
 dotnet: 2.1.302
-script:
- - dotnet restore
+before_script:
+  - dotnet restore
+script:  
+  - dotnet test ./XUnitTests
