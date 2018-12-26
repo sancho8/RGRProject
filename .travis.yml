@@ -7,5 +7,7 @@ before_script:
   - dotnet restore
   - psql -c "CREATE DATABASE RGRDatabase;" -U postgres
 script:  
+  - cd RGRProject
   - dotnet ef database update
+  - cd ..
   - dotnet test ./XUnitTests
