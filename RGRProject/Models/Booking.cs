@@ -8,7 +8,7 @@ namespace RGRProject.Models
     public class Booking
     {
         public int ID { get; set; }
-        public int PlaceID { get; set; }
+        public int PlaceId { get; set; }
         public string CustomerName { get; set; }
         public string CustomerContact { get; set; }
         public DateTime? BookingStart { get; set; }

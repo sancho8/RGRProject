@@ -39,9 +39,9 @@ namespace RGRProject.Models
 
             #region BookingSeed
             modelBuilder.Entity<Booking>().HasData(
-                new Booking() { ID = 1, CustomerName = "Іванов Іван", PlaceID = 1, CustomerContact = "0503234343", Rating = 4, Status = 2, BookingStart = new DateTime(2018, 12, 25, 16, 30, 00), BookingFinish = new DateTime(2018, 12, 25, 17, 30, 00) },
-                new Booking() { ID = 2, CustomerName = "Іванов Іван", PlaceID = 2, CustomerContact = "0503234345", Rating = 5, Status = 2, BookingStart = new DateTime(2018, 12, 26, 16, 30, 00), BookingFinish = new DateTime(2018, 12, 26, 18, 00, 00) },
-                new Booking() { ID = 3, CustomerName = "Петров Петро", PlaceID = 1, CustomerContact = "0503234341", Rating = null, Status = 1, BookingStart = new DateTime(2018, 12, 27, 16, 30, 00), BookingFinish = null }
+                new Booking() { ID = 1, CustomerName = "Іванов Іван", PlaceId = 1, CustomerContact = "0503234343", Rating = 4, Status = 2, BookingStart = new DateTime(2018, 12, 25, 16, 30, 00), BookingFinish = new DateTime(2018, 12, 25, 17, 30, 00) },
+                new Booking() { ID = 2, CustomerName = "Іванов Іван", PlaceId = 2, CustomerContact = "0503234345", Rating = 5, Status = 2, BookingStart = new DateTime(2018, 12, 26, 16, 30, 00), BookingFinish = new DateTime(2018, 12, 26, 18, 00, 00) },
+                new Booking() { ID = 3, CustomerName = "Петров Петро", PlaceId = 1, CustomerContact = "0503234341", Rating = null, Status = 1, BookingStart = new DateTime(2018, 12, 27, 16, 30, 00), BookingFinish = null }
             );
             #endregion
         }
