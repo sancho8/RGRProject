@@ -9,8 +9,16 @@ export class ConnectService {
 
 constructor(private http: HttpClient) { }
 
-getPlaces(): Observable<any> {
-  return this.http.get<any>(`${BaseUrl}/GetPlaces`) 
-}
+  getPlaces(): Observable<any> {
+    return this.http.get<any>(`${BaseUrl}/GetPlaces`) 
+  }
+
+  getPlaceProfile(id): Observable<any> {
+    return this.http.get<any>(`${BaseUrl}/GetPlace/${id}`) 
+  }
+
+  bookPlace(data): Observable<any> {
+    return this.http.post<any>(`${BaseUrl}/BookPlace`, {...data}) 
+  }
 
 }
