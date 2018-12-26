@@ -27,6 +27,13 @@ namespace RGRProject
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddSwaggerDocument(document =>
+            {
+                document.DocumentName = "v1";
+                // Post process the generated document
+                document.PostProcess = d => d.Info.Title = "ARena API";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +52,10 @@ namespace RGRProject
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            // Add OpenAPI/Swagger middlewares
+            app.UseSwagger();
+            app.UseSwaggerUi3();
 
             app.UseMvc(routes =>
             {
