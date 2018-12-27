@@ -11,8 +11,8 @@ export const MAX_INTERVAL_MS = 2 * 1000; // 2 sec
 
 @Injectable()
 export class ConnectService {
-places: BehaviorSubject<any> = new BehaviorSubject({});
-place: BehaviorSubject<any> = new BehaviorSubject({});
+places: BehaviorSubject<any> = new BehaviorSubject([]);
+place: BehaviorSubject<any> = new BehaviorSubject([]);
 data = this.places.asObservable();
 currentPlace = this.place.asObservable();
 

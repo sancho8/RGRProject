@@ -10,8 +10,8 @@ import { ajax } from 'rxjs/ajax';
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  places: any;
-
+  places: any = [];
+  isLoaded = false;
   constructor(private connectService: ConnectService){
 
   }
@@ -20,9 +20,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.connectService.data
     .subscribe(res => {
       if(res){
-        this.places = res;
+        this.places = res || [];
+        this.isLoaded = true;
       }
-      this.places = res;
       console.log(this.places);         
     });
 
