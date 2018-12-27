@@ -1,3 +1,111 @@
-<p>
-  book works!
-</p>
+<section class="mb-3">
+  <div class="row">
+    <div class="col-12">
+      <div class="content-header"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+          <div class="card-header">
+              <div class="card-title-wrap bar-info" style="display:flex; justify-content: space-between;">
+                <h4 class="card-title">Book Place</h4>
+              </div>
+            </div>
+            <div class="card-body">
+                <div class="card-block">
+                    <form  [formGroup]='tempForm' (ngSubmit)="onSubmit()"> 
+                        <div *ngIf='success && tempForm.valid && submitted' class="alert alert-success" role="alert">
+                            Success
+                        </div>
+                        <div *ngIf='error && tempForm.valid && submitted' class="alert alert-danger" role="alert">
+                            {{error}}
+                        </div>
+                      <div class="form-group">
+
+                          <br>
+                          <label
+                            class="col-form-label">
+                            Your Name
+                          </label>
+                          <div class="input-group">
+                            <input formControlName="customerName" class="form-control round" placeholder="Name" required
+                                 [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                            <div *ngIf='submitted && f.name.errors' class="invalid-feedback">
+                                <div *ngIf="f.name.errors.required">Name is required</div>
+                            </div>         
+                          </div>
+                          <br>
+                          <label
+                            class="col-form-label">
+                            Your contacts
+                          </label>
+                          <div class="input-group">
+                            <input formControlName="customerContact" class="form-control round" placeholder="Name" required
+                                [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                            <div *ngIf='submitted && f.name.errors' class="invalid-feedback">
+                                <div *ngIf="f.name.errors.required">Name is required</div>
+                            </div>         
+                          </div>
+                          <br>
+                          <div>
+                              <div class="form-group" style="display:flex">
+                                <label
+                                  class="col-form-label">
+                                  Booking Start
+                                </label>
+                                <div class=" col-sm-4" style="display:flex; align-items: center;">
+                                  <input class="form-control" placeholder="yyyy-mm-dd" formControlName="bookingStart"
+                                         name="dp"  ngbDatepicker #d="ngbDatepicker">
+                                  <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d.toggle()" type="button"></button>
+                                  </div>
+                                </div>
+                                <ngb-timepicker [(ngModel)]="times[0].time" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+                              </div>                            
+                            </div>
+
+                          <div>
+                            <div class="form-group" style="display:flex">
+                              <label
+                                class="col-form-label">
+                                Booking Finish
+                              </label>
+                              <div class=" col-sm-4" style="display:flex; align-items: center;">
+                                <input class="form-control" placeholder="yyyy-mm-dd" formControlName="bookingFinish"
+                                       name="dp"  ngbDatepicker #d1="ngbDatepicker">
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d1.toggle()" type="button"></button>
+                                </div>
+                              </div>
+                              <ngb-timepicker [(ngModel)]="times[1].time" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+                            </div>                            
+                          </div>
+
+                          <div class="form-group">
+                              <label
+                                class="col-form-label"
+                                style='width:100%'>
+                                Rating
+                              </label>
+                            <ngb-rating formControlName="rating"></ngb-rating>
+                          </div>
+ 
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-outline-info" >
+                         Book
+                        </button>
+                      </div>
+                      {{tempForm.value| json}}
+                    </form>
+
+                </div>
+            </div>
+            
+      </div>
+    </div>
+  </div>
+</section>
+

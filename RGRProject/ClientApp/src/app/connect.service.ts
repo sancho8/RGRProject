@@ -58,9 +58,10 @@ constructor(private http: HttpClient) { }
   bookPlace(data) {
     ajax({url: `${BaseUrl}/BookPlace`, body: data })
       .pipe(this.backoff(3, 250))
-      .subscribe(data => {
-        return data;
+      .subscribe(res => {
+        console.log(res);
       });
   }
+
 
 }

@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Observable, range, timer, pipe} from 'rxjs';
 import { map, tap, retryWhen, delay, take, zip, mergeMap} from 'rxjs/operators';
 import { ajax } from 'rxjs/ajax';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { ajax } from 'rxjs/ajax';
 export class HomeComponent implements OnInit, OnDestroy {
   places: any = [];
   isLoaded = false;
-  constructor(private connectService: ConnectService){
+  constructor(private connectService: ConnectService, private router: Router){
 
   }
   ngOnInit(){
@@ -22,10 +23,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       if(res){
         this.places = res || [];
         this.isLoaded = true;
-      }
-      console.log(this.places);         
+      }         
     });
 
+  }
+
+  bookPlace(id){
+    this.router.navigateByUrl(`book/${id}`);
   }
 
   ngOnDestroy(){

@@ -16,7 +16,7 @@
           <h5 class="card-title">Рейтинг: {{card.rating}}</h5>
           <div style='display: flex; justify-content: space-around; align-items: baseline'>
             <a class="card-link danger" href="{{card.site}}" target="_blank"><strong>Сайт</strong></a>
-            <button type="button" class="btn btn-secondary" style='border: none; outline:none;'>Забронировать</button>
+            <button type="button" class="btn btn-secondary" style='border: none; outline:none;' (click)='bookPlace(card.id)'>Забронировать</button>
           </div>
 
         </div>
