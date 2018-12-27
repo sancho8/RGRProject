@@ -19,6 +19,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.connectService.getPlaces();
     this.connectService.data
     .subscribe(res => {
+      if(res){
+        this.places = res;
+      }
       this.places = res;
       console.log(this.places);         
     });
