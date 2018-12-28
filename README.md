@@ -23,7 +23,7 @@ dotnet publish --output /build_output
 ```
 
 ### Документація API
-localhost://<port>/swagger
+localhost://<port_name>/swagger
 або
 http://52.233.138.86:8097/swagger
 
