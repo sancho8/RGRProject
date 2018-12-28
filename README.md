@@ -22,6 +22,11 @@ dotnet build --configuration Release
 dotnet publish --output /build_output
 ```
 
+### Документація API
+localhost://<port>/swagger
+або
+http://52.233.138.86:8097/swagger
+
 ### Запуск бота за допомогою Docker
 ```
 $ docker build -t RGRProject .
